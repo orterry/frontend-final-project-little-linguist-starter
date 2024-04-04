@@ -1,14 +1,24 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { GameSelectionDialogComponent } from './game-selection-dialog/game-selection-dialog.component'; 
 
 @Component({
   selector: 'app-category-selection',
-  standalone: true,
-  imports: [
-    CommonModule,
-  ],
   templateUrl: './category-selection.component.html',
-  styleUrl: './category-selection.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./category-selection.component.css']
 })
-export class CategorySelectionComponent { }
+export class CategorySelectionComponent {
+  categories = [
+    { name: 'Category 1', wordCount: 10 },
+    { name: 'Category 2', wordCount: 15 },
+  ];
+
+  constructor(private dialog: MatDialog) { }
+
+  openGameSelectionDialog(categoryName: string): void {
+    const dialogRef = this.dialog.open(GameSelectionDialogComponent, {
+      width: '400px',
+      data: { categoryName }
+    });
+  }
+}

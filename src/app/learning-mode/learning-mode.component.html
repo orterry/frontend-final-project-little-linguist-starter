@@ -1,1 +1,7 @@
-<p>learning-mode works!</p>
+<div *ngFor="let category of categories">
+  <div class="category-card" (click)="openGameSelectionDialog(category.name)">
+    <h3>{{ category.name }}</h3>
+    <p>Word Count: {{ category.wordCount }}</p>
+  </div>
+</div>
+<button (click)="openExitConfirmationDialog()">Open Exit Confirmation Dialog</button>

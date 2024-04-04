@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-selection-dialog',
-  standalone: true,
-  imports: [],
   templateUrl: './game-selection-dialog.component.html',
-  styleUrl: './game-selection-dialog.component.css'
+  styleUrls: ['./game-selection-dialog.component.css']
 })
 export class GameSelectionDialogComponent {
+
+  constructor(public dialogRef: MatDialogRef<GameSelectionDialogComponent>) { }
 
 }

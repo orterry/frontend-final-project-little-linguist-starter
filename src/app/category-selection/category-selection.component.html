@@ -1,1 +1,13 @@
-<p>category-selection works!</p>,
+<div *ngFor="let category of categories">
+  <div (click)="openGameSelectionDialog(category.name)">
+    <h3>{{ category.name }}</h3>
+    <p>Word Count: {{ category.wordCount }}</p>
+  </div>
+</div>
+<div class="category-list">
+  <div *ngFor="let category of categories" class="category-item">
+    <h3>{{ category.name }}</h3>
+    <p>Word Count: {{ category.wordCount }}</p>
+    <span *ngIf="category.updatedThisWeek" class="star">&#9733;</span>
+  </div>
+</div>

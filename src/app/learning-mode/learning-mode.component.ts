@@ -1,5 +1,6 @@
-// learning-mode.component.ts
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ExitConfirmationDialogComponent } from './exit-confirmation-dialog/exit-confirmation-dialog.component';
 
 @Component({
   selector: 'app-learning-mode',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./learning-mode.component.css']
 })
 export class LearningModeComponent {
-  // Add logic here
+  constructor(private dialog: MatDialog) { }
+
+  openGameSelectionDialog(): void {
+    const dialogRef = this.dialog.open(ExitConfirmationDialogComponent, {
+      width: '400px',
+    });
+  }
 }

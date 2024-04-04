@@ -1,3 +1,17 @@
-:host {
-  display: block;
+.category-card {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+.category-card:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+.star {
+  color: gold;
+  font-size: 20px;
 }
