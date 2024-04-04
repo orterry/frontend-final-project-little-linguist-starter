@@ -1,40 +1,59 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
+import { GameService } from '../services/game/game-service';
+import { GameDifficulty } from '../../shared/model/game-difficulty';
+import { NgModule } from '@angular/core';
+import { GameProfile } from '../../shared/model/game-profile';
+import { RouterModule } from '@angular/router';
 
-import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
+
 
 @Component({
-  selector: 'app-dialog',
+  selector: 'app-delete-category-dialog',
   standalone: true,
-  imports: [],
+  imports: [
+    MatButtonModule,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+    RouterModule
+  ],
   templateUrl: './dialog.component.html',
-  styleUrl: './dialog.component.css'
+  styleUrl: './dialog.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
-  constructor(private dialog: MatDialog) {}
+  constructor() { }
 
-}
+  public selectedValue : number = 2
+  public selectedRoute : string = 'matching'
+  public gameDetails: GameService = new GameService()
+  public selectedGameId: number | undefined;
+  difficulty: string = 'easy'; // Assuming difficulty is a string, you can use appropriate type
+  description: string = this.gameDetails.getGames()[0].description
+  onSelectChange(event: any) {
+    this.selectedValue = Number(event.target.value);
 
-  categories = [
-    { name: 'Fruits', words: ['Banana', 'Lemon', 'orange'] },
-    { name: 'Animals', words: ['Dog', 'Cat', 'lion'] },
-    { name: 'Home', words: ['Door', 'Table', 'chair'] },
-    { name: 'Home', words: ['Door', 'Table', 'chair'] },
-    { name: 'Home', words: ['Door', 'Table', 'chair'] },
+    const selectedGame = this.gameDetails.getGames().find(game => game.id === this.selectedValue);
+    this.description = selectedGame?.description || ''
+    this.selectedRoute = selectedGame?.url || ''
+    if (selectedGame?.difficulty === GameDifficulty.EASY ) {
+      this.difficulty = 'easy'
+    }
+    else if (selectedGame?.difficulty === GameDifficulty.MEDIUM) {
+      this.difficulty = 'medium'
+    }
+    else {
+      this.difficulty = 'hard'
+    }
 
 
 
-    // רשימת הקטגוריות האחרות...
-  ];
-
-  openGameSelectionDialog(categoryName: string): void {
-    const dialogRef = this.dialog.open(GameSelectionDialogComponent, {
-      width: '400px',
-      data: { category: categoryName, games: ['Game1', 'Game2', 'Game3'] } // הוסף רשימת משחקים כאן
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
+  
+
+
+
+
 }

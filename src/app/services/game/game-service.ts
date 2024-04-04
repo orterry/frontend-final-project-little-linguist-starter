@@ -8,7 +8,7 @@ import { GameDifficulty } from '../../../shared/model/game-difficulty';
 export class GameService {
   private games: GameProfile[] = [
     new GameProfile (2,  'Matching Game', 'A matching pairs game', GameDifficulty.EASY, "matching"),
-    new GameProfile ( 3, 'Mixed words Game','A game to test category knowledge',GameDifficulty.EASY, "") 
+    new GameProfile ( 3, 'Mixed words Game','A game to test category knowledge',GameDifficulty.HARD, "mixed") 
     // ניתן להוסיף עוד משחקים כך לפי הצורך
   ];
 
