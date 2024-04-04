@@ -4,6 +4,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import { MatchingGameComponent } from './matching-game/matching-game.component';
 import { ChooseCategoryComponent } from './choose-category/choose-category.component';
 import { MixedGameComponent } from './mixed-game/mixed-game.component';
+import { HelpComponentComponent } from './help-component/help-component.component';
 
 export const routes: Routes = [
     {path: "", component: CategoriesListComponent},
@@ -12,7 +13,7 @@ export const routes: Routes = [
     {path: "matching", component: MatchingGameComponent},
     {path: "choose", component: ChooseCategoryComponent},
     {path: "mixed", component: MixedGameComponent},
-    {path: "help", component: MixedGameComponent},
+    {path: "help", component: HelpComponentComponent}, // change this component variable help
 
     
 
