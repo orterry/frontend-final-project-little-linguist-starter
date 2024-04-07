@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { GameSelectionDialogComponent } from './game-selection-dialog/game-selection-dialog.component'; 
+import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
 
 @Component({
   selector: 'app-category-selection',

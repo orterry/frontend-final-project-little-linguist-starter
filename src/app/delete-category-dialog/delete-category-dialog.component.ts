@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 @Component({
   selector: 'app-delete-category-dialog',
+  standalone: true,
+  imports: [
+    CommonModule, MatDialogModule
+  ],
   templateUrl: './delete-category-dialog.component.html',
   styleUrls: ['./delete-category-dialog.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
