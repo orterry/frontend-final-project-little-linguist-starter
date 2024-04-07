@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { CategoriesListComponent } from './categories-list/categories-list.component';
+import { CategoriesListComponent } from './categories-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { LearningModeComponent } from './learning-mode/learning-mode.component';
 

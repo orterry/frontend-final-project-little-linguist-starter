@@ -1,20 +1,23 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete-category-dialog',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose
-  ],
   templateUrl: './delete-category-dialog.component.html',
-  styleUrl: './delete-category-dialog.component.css',
+  styleUrls: ['./delete-category-dialog.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteCategoryDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public categoryName : string){}
- }
+  categoryName: string;
+  
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { fullname: string }, private dialog: MatDialog) {
+    this.categoryName = data.fullname;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DeleteCategoryDialogComponent, {
+      data: { fullname: this.categoryName }
+    });
+  }
+}
