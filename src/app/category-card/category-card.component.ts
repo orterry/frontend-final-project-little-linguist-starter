@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Category } from '../../shared/model/category';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
@@ -12,6 +11,10 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class CategoryCardComponent {
   @Input()
-  currentCategory? : Category;
- }
- 
+  currentCategory?: Category;
+}
+
+export interface Category {
+  name: string;
+  wordCount: number;
+}

@@ -8,6 +8,7 @@
 
 <h1>Meet Our Team</h1>
 <div class="learning-mode">
- <div *ngFor="let c of allCategory" class="category-card">
- <app-person-card [currentcategory]="c"></app-category-card>
+  <div *ngFor="let c of allCategory" class="category-card">
+    <app-category-card [currentCategory]="c"></app-category-card>
+  </div>
 </div>
