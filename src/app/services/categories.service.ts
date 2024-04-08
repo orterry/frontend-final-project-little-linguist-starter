@@ -6,6 +6,9 @@ import { Category } from '../../shared/model/category';
   providedIn: 'root'
 })
 export class CategoriesService {
+  getAllCategories(): Category[] | undefined {
+    throw new Error('Method not implemented.');
+  }
   private readonly CATEGORIES_KEY = 'categories';
   private readonly NEXT_ID_KEY = 'nextId';
 
