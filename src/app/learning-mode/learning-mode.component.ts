@@ -12,7 +12,8 @@ import { CategoriesService } from '../services/categories.service';
   selector: 'app-learning-mode',
   templateUrl: './learning-mode.component.html',
   styleUrls: ['./learning-mode.component.css'],
-  imports: [CommonModule, CategoryCardComponent]
+  imports: [CommonModule, CategoryCardComponent],
+  standalone: true
 })
 export class LearningModeComponent implements OnInit {
   categories: Category[] | undefined; 
