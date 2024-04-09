@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: "matching", component: MatchingGameComponent},
     {path: "choose", component: ChooseCategoryComponent},
     {path: "mixed", component: MixedGameComponent},
-    {path: "help", component: HelpComponentComponent}, // change this component variable help
+    {path: "help", component: HelpComponentComponent}, 
 
     
 

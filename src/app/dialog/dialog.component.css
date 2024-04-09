@@ -2,4 +2,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: rgb(87, 17, 251);
+    border-color: black;
+    border-width: 2px; 
+}
+
+#h {
+    text-align: center;
 }
