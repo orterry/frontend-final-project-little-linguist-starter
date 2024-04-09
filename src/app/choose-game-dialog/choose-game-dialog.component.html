@@ -1,1 +1,19 @@
-<p>choose-game-dialog works!</p>
+<mat-form-field>
+    <mat-label>Choose game:</mat-label>
+    <mat-select>
+    <mat-option
+    *ngFor="let game of allGames"
+    [value]="game">
+    {{ game.name }}
+    </mat-option>
+    </mat-select>
+   </mat-form-field>
+
+   <div>
+    <button mat-flat-button
+    color="primary"
+    [disabled]="!selectedGames">
+    Assign Team
+    </button>
+   </div>
+ 

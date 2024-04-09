@@ -3,8 +3,8 @@
       {{ currentCategory?.name }}
     </mat-card-title>
     <mat-card-content>
-      <div *ngIf="currentCategory?.wordCount">
-        Word Count: {{ currentCategory?.wordCount }}
+      <div>
+        Word Count: {{ currentCategory?.words?.length }}
       </div>
     </mat-card-content>
   </mat-card>

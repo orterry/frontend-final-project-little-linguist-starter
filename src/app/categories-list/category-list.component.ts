@@ -22,6 +22,7 @@ import { DeleteCategoryDialogComponent } from '../delete-category-dialog/delete-
 export class CategoriesListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'numOfWords', 'lastUpdateDate', 'actions'];
   dataSource : Category[] = [];
+  public categories: Category[] | undefined;
 
   constructor(private categoriesService : CategoriesService, private dialogService : MatDialog) {}
 
@@ -39,3 +40,5 @@ export class CategoriesListComponent implements OnInit {
       }});
   }
 }
+
+

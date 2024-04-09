@@ -17,7 +17,7 @@ export class GameInfoService {
 
   // מתודה להוספת משחק למערכת
   private addGame(id: number, name: string, description: string, difficulty: GameDifficulty, url: string): void {
-    this.games.push(new GameProfile(id, name, description, difficulty, url));
+    this.games.push(new GameProfile({ id, name, description, difficulty, url }));
   }
 
   // מתודה לקבלת רשימת המשחקים

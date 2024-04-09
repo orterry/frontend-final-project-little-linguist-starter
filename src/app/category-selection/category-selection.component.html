@@ -11,3 +11,8 @@
     <span *ngIf="category.updatedThisWeek" class="star">&#9733;</span>
   </div>
 </div>
+<div *ngFor="let category of categories">
+  <div class="category-card" (click)="onCategorySelected(category)">
+    <app-category-card [currentCategory]="category"></app-category-card>
+  </div>
+</div>

@@ -1,24 +1,33 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Category } from '../../shared/model/category';
+import { CategoriesService } from '../services/categories.service';
+import { LearningModeComponent } from '../learning-mode/learning-mode.component';
+import { CommonModule } from '@angular/common';
+import { CategoryCardComponent } from '../category-card/category-card.component';
 
 @Component({
+  standalone : true,
+  imports:[LearningModeComponent,CommonModule,CategoryCardComponent],
   selector: 'app-category-selection',
   templateUrl: './category-selection.component.html',
-  styleUrls: ['./category-selection.component.css']
+  styleUrls: ['./category-selection.component.css'],
+  
 })
-export class CategorySelectionComponent {
-  categories = [
-    { name: 'Category 1', wordCount: 10 },
-    { name: 'Category 2', wordCount: 15 },
-  ];
+export class CategorySelectionComponent implements OnInit {
+openGameSelectionDialog(arg0: string) {
+throw new Error('Method not implemented.');
+}
+  categories: Category[] | undefined;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private categoriesService: CategoriesService) {}
 
-  openGameSelectionDialog(categoryName: string): void {
-    const dialogRef = this.dialog.open(GameSelectionDialogComponent, {
-      width: '400px',
-      data: { categoryName }
-    });
+  ngOnInit(): void {
+    this.categories = this.categoriesService.list();
   }
+
+  onCategorySelected(_category: Category): void {
+    // פתח דיאלוג בחירת משחק
+    // העבר את מזהה הקטגוריה כקלט
+  }
+  @Input() currentCategory?: Category
 }

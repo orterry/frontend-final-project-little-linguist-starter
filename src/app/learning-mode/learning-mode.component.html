@@ -1,14 +1,9 @@
-<div *ngFor="let category of categories">
-  <div class="category-card" (click)="openGameSelectionDialog(category.name)">
-    <h3>{{ category.name }}</h3>
-    <p>Word Count: {{ category.wordCount }}</p>
-  </div>
-</div>
-<button (click)="openExitConfirmationDialog()">Open Exit Confirmation Dialog</button>
 
-<h1>Meet Our Team</h1>
+<h1>Lets play</h1>
 <div class="learning-mode">
   <div *ngFor="let c of allCategories" class="category-card">
-    <app-category-card [currentCategory]="c"></app-category-card>
+    <app-category-card [currentCategory]="c" (click)="openGameSelectionDialog(c.name)"></app-category-card>
+  
   </div>
 </div>
+
