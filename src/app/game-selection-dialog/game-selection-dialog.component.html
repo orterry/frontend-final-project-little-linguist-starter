@@ -1,26 +1,18 @@
-<h1 mat-dialog-title>Game Selection</h1>
-<div mat-dialog-content>
-  <h2>Choose a game:</h2>
+<mat-dialog-content>Game Selection
+<div>
+  <h2>Difficulty:Hard</h2>
   <ul>
-    <li>matching game</li>
-    <li>Word translation</li>
-    <li>Reverse word translation</li>
-    <li>Messy pun</li>
-    <li>trivia game</li>
- 
+    <li>Description:choose evrey words translation</li>
+    <li>from a list of 4 options</li>
   </ul>
 </div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="false">Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Select</button>
-</div>
-
 <h1>Choose a game to learn {{ category.name }}</h1>
 <ul>
-    <li *ngFor="let game of games" (click)="selectGame(game)">
-        {{ game.name }}
-        <p>{{ game.description }}</p>
-        <span>Difficulty: {{ game.difficulty }}</span>
-    </li>
+ 
 </ul>
 <button (click)="navigateToGame()">Start Game</button>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Select</button>
+  <button mat-button [mat-dialog-close]="true">Cancel</button>
+</mat-dialog-actions>

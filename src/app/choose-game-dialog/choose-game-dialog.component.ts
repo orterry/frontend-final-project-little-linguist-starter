@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { GameChosseDialogService } from '../services/game-choose-dialog.service';
 import { GameChooseDialog } from '../../shared/model/game-choose-dialog';
-import { CategorySelectionComponent } from '../category-selection/category-selection.component';
 import { CategoryCardComponent } from '../category-card/category-card.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,7 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-choose-game-dialog',
   standalone: true,
-  imports: [CommonModule,ChooseGameDialogComponent,CategorySelectionComponent,CategoryCardComponent,MatButtonModule,MatFormFieldModule,MatSelectModule],
+  imports: [CommonModule,ChooseGameDialogComponent,CategoryCardComponent,MatButtonModule,MatFormFieldModule,MatSelectModule],
   templateUrl: './choose-game-dialog.component.html',
   styleUrl: './choose-game-dialog.component.css'
 })
