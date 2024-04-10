@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { Category } from '../../shared/model/category';
 import { MatDialog } from '@angular/material/dialog';
-import { ChooseGameDialogComponent } from '../choose-game-dialog/choose-game-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
 
 
 
@@ -21,7 +21,7 @@ export class CategoryCardComponent {
   constructor(private GameChosseDialogService : MatDialog){}
   
   openGame (id?: number, _name?: string) {
-    const dialogRef = this.GameChosseDialogService.open(ChooseGameDialogComponent,{
+    const dialogRef = this.GameChosseDialogService.open(GameSelectionDialogComponent,{
       data : id,
     });
   }

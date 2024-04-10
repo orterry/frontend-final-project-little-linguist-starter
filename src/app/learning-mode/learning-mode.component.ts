@@ -10,11 +10,12 @@ import { GameSelectionDialogComponent } from '../game-selection-dialog/game-sele
 
 
 @Component({
+  standalone: true,
   selector: 'app-learning-mode',
   templateUrl: './learning-mode.component.html',
   styleUrls: ['./learning-mode.component.css'],
   imports: [CommonModule, CategoryCardComponent,],
-  standalone: true
+  
 })
 export class LearningModeComponent implements OnInit {
   

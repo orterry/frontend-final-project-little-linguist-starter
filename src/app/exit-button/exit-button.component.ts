@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ExitConfirmationDialogComponent } from './exit-confirmation-dialog/exit-confirmation-dialog.component';
+import { ExitConfirmationDialogComponent } from '../exit-confirmation-dialog/exit-confirmation-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
+  standalone : true,
+  imports : [MatIconModule],
   selector: 'app-exit-button',
   templateUrl: './exit-button.component.html',
   styleUrls: ['./exit-button.component.css']

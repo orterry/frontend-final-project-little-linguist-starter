@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { GameChooseDialog } from '../../shared/model/game-choose-dialog';
 import { GameDifficulty } from '../../shared/model/game-difficulty.enum';
-
 @Injectable({
+  
   providedIn: 'root'
+
 })
-export class GameChosseDialogService {
+export class ChooseGameDialogComponent {
 
   private allGames : GameChooseDialog[] = [
     new GameChooseDialog(1, "Word matching game", "Clean and dry all dishes", GameDifficulty.Medium),

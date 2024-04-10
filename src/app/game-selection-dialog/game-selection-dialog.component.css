@@ -1,0 +1,88 @@
+/* game-selection-dialog.component.css */
+
+/* Set background color */
+:host {
+    background-color: #f9f9f9;
+  }
+  
+  /* Center the dialog content */
+  mat-dialog-content {
+    text-align: center;
+  }
+  
+  /* Style for the game selection title */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #007bff;
+  }
+  
+  /* Style for the difficulty */
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Style for the game description */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Style for the start game button */
+  button {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  /* Add hover effect to button */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the dialog actions */
+  mat-dialog-actions {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Style for the select and cancel buttons */
+  mat-dialog-actions button {
+    margin: 0 10px;
+  }
+  
+  /* Style for the select button */
+  mat-dialog-actions button:first-child {
+    background-color: #28a745;
+  }
+  
+  /* Add hover effect to select button */
+  mat-dialog-actions button:first-child:hover {
+    background-color: #218838;
+  }
+  
+  /* Style for the cancel button */
+  mat-dialog-actions button:last-child {
+    background-color: #dc3545;
+  }
+  
+  /* Add hover effect to cancel button */
+  mat-dialog-actions button:last-child:hover {
+    background-color: #c82333;
+  }
+  

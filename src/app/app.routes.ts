@@ -12,7 +12,7 @@ export const routes: Routes = [
     {path: "newcategory", component: CategoryFormComponent},
     {path: "learning-mode", component: LearningModeComponent},
     {path: "category-card", component: CategoryCardComponent},
-    {path:"choose-game-dialog",component:ChooseGameDialogComponent},
-    {path: "game-selection-dialog", component: GameSelectionDialogComponent}
+    {path: "game-selection-dialog", component: GameSelectionDialogComponent},
+    {path:"choose-game-dialog",component:ChooseGameDialogComponent}
 ];
 
