@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { GameChosseDialogService } from '../services/game-chosse-dialog.service';
+import { GameChosseDialogService } from '../services/game-choose-dialog.service';
 import { GameChooseDialog } from '../../shared/model/game-choose-dialog';
 import { CategorySelectionComponent } from '../category-selection/category-selection.component';
 import { CategoryCardComponent } from '../category-card/category-card.component';

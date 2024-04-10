@@ -1,10 +1,13 @@
 <mat-card class="card-container">
     <mat-card-title>
       {{ currentCategory?.name }}
+      <mat-icon  class ="star-icon">star</mat-icon>
     </mat-card-title>
-    <mat-card-content>
-      <div>
-        Word Count: {{ currentCategory?.words?.length }}
+    <mat-card-content
+     (click)="openGame(currentCategory?.id,currentCategory?.name)"
+     >
+      <div *ngif = "currentCategory?.words">
+        word Count: {{ currentCategory?.words?.length }}
       </div>
     </mat-card-content>
   </mat-card>
