@@ -1,0 +1,16 @@
+<div class="orderCards">
+    <!-- Left column for currentCards -->
+    <div class="left-column">
+      <div *ngFor="let c of currentCards;let i = index" class="category-card">
+        <app-word [value]="c.origin" [wordStatus]="originStatus[index]"></app-word>
+      </div>
+    </div>
+  
+    <!-- Right column for shuffleTarget -->
+    <div class="right-column">
+      <div *ngFor="let c of shuffleTarget" class="category-card">
+        <app-word [value]="c"></app-word>
+      </div>
+    </div>
+  </div>
+  

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
-import { MatchingGameComponent } from './matching-game/matching-game.component';
+import { MatchingGameComponent } from './matching-game/main/matching-game.component';
 import { ChooseCategoryComponent } from './choose-category/choose-category.component';
 import { MixedGameComponent } from './mixed-game/mixed-game.component';
 import { HelpComponentComponent } from './help-component/help-component.component';

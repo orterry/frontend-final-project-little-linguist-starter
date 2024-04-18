@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { Category } from '../../shared/model/category';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { GameService } from '../services/game/game-service';
 
@@ -13,14 +13,15 @@ import { GameService } from '../services/game/game-service';
   styleUrl: './category-card.component.css'
 })
 export class CategoryCardComponent {
-  constructor(private dialogService : MatDialog,gameService:GameService){}
+  constructor(
+    private dialogService : MatDialog,gameService:GameService){}
   @Input()
   currentcategory? : Category;
 
 
   openDialog() {
-    let dialogRef = this.dialogService.open(DialogComponent,{data:'aaa'});
-
+    let dialogRef = this.dialogService.open(DialogComponent,{data:this.currentcategory});
+    
     // dialogRef.afterClosed().subscribe(result => {
     //   if (result) {
     //     this.categoriesService.delete(id);

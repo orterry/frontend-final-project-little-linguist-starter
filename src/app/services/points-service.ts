@@ -8,7 +8,10 @@ import { GamePlayed } from '../../shared/model/game-played';
 export class PointsService {
   private gamePoints: GamePlayed[] = []; // רשימת המשחקים עם נקודות
 
-  constructor() { }
+  constructor() {
+      localStorage.setItem("gamePoints",JSON.stringify(Array.from(this.gamePoints)))
+      
+   }
 
   // מתודה להחזרת רשימת המשחקים עם הנקודות
   getGamePoints(): GamePlayed[] {
@@ -18,5 +21,6 @@ export class PointsService {
   // מתודה להוספת משחק עם נקודות
   addGamePlayed(gamePlayed: GamePlayed) {
     this.gamePoints.push(gamePlayed);
+    localStorage.setItem("gamePoints",JSON.stringify(Array.from(this.gamePoints)))
   }
 }

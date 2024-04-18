@@ -1,0 +1,20 @@
+.orderCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    gap: 20px; /* Gap between grid items */
+  }
+  
+  /* Style for the left column */
+  .left-column {
+    grid-column: 1; /* Span first column */
+  }
+  
+  /* Style for the right column */
+  .right-column {
+    grid-column: 2; /* Span second column */
+  }
+  
+  /* Style for category cards */
+  .category-card {
+    /* Add your styles for category cards */
+  }

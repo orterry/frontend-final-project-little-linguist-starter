@@ -6,6 +6,7 @@ import { GameDifficulty } from '../../shared/model/game-difficulty';
 import { NgModule } from '@angular/core';
 import { GameProfile } from '../../shared/model/game-profile';
 import { RouterModule } from '@angular/router';
+import { Category } from '../../shared/model/category';
 
 
 
@@ -24,7 +25,7 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public currentcategory:Category) { }
 
   public selectedValue : number = 2
   public selectedRoute : string = 'matching'
@@ -51,6 +52,13 @@ export class DialogComponent {
 
 
   }
+
+  sendCategoryGame(){
+    localStorage.setItem("currentCategory",JSON.stringify(this.currentcategory))
+
+
+  }
+
   
 
 
