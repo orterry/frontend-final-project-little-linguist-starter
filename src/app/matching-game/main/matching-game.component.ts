@@ -68,4 +68,28 @@ export class MatchingGameComponent {
     
   }
 
+  changeColor(){
+  
+    if(this.wordStatus == WordStatus.NORMAL){
+      this.color = 'black'
+    }
+    else if(this.wordStatus == WordStatus.SELECTED){
+      this.color = 'blue'
+    }
+    else{
+      this.color = 'gray'
+    }
+  }
+  
+  clickModel() {
+    console.log('click?');
+    
+    if(this.wordStatus == WordStatus.NORMAL){
+      this.wordStatus = WordStatus.SELECTED
+      }
+      this.changeColor();
+    }
+  
+  
+
 }
