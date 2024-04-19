@@ -15,13 +15,31 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class WordComponent {
 
-
+constructor(){
+}
 
 
 @Input()
 value? : string;
-wordStatus?:WordStatus;
 color? :string;
+@Input()
+wordStatus?:WordStatus
+
+changeColor(){
+  if(this.wordStatus === WordStatus.NORMAL){
+    this.color = 'black'
+  }
+  else if(this.wordStatus === WordStatus.SELECTED){
+    this.color = 'blue'
+  }
+  else{
+    this.color = 'gray'
+  }
+  return this.color
+}
+
+}
 
 
- }
+
+ 

@@ -68,27 +68,51 @@ export class MatchingGameComponent {
     
   }
 
-  changeColor(){
-  
-    if(this.wordStatus == WordStatus.NORMAL){
-      this.color = 'black'
-    }
-    else if(this.wordStatus == WordStatus.SELECTED){
-      this.color = 'blue'
+  chooseCard(cat:string,i:number){
+    if(cat === 'origin'){
+      if(this.originStatus[i] === WordStatus.NORMAL){
+        this.originStatus[i] = WordStatus.SELECTED
+        for(let j = 0 ; j < this.originStatus.length;j++ ){
+          if(i === j){
+            continue
+          }
+          if(this.originStatus[j] === WordStatus.SELECTED){
+            this.originStatus[j] = WordStatus.NORMAL
+            break
+          }
+        }
+
+        for(let j = 0 ; j < this.targetStatus.length;j++ ){
+          if(this.targetStatus[j] === WordStatus.SELECTED){
+            
+          }
+
+        }
+
+      }
+      
+
     }
     else{
-      this.color = 'gray'
-    }
-  }
-  
-  clickModel() {
-    console.log('click?');
-    
-    if(this.wordStatus == WordStatus.NORMAL){
-      this.wordStatus = WordStatus.SELECTED
+      if(this.targetStatus[i] === WordStatus.NORMAL){
+        this.targetStatus[i] = WordStatus.SELECTED
+        for(let j = 0 ; j < this.targetStatus.length;j++ ){
+          if(i === j){
+            continue
+          }
+          if(this.targetStatus[j] === WordStatus.SELECTED){
+            this.targetStatus[j] = WordStatus.NORMAL
+            break
+          }
+        }
       }
-      this.changeColor();
+
+
     }
+
+
+  }
+
   
   
 
