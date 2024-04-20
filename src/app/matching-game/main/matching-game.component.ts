@@ -84,7 +84,14 @@ export class MatchingGameComponent {
 
         for(let j = 0 ; j < this.targetStatus.length;j++ ){
           if(this.targetStatus[j] === WordStatus.SELECTED){
-            
+            const check = this.currentCards.find((card)=>card.target === this.shuffleTarget[j])
+            if(check?.origin == this.currentCards[i].origin){
+              alert('greate')
+            }
+            else{
+              alert('try again')
+            }
+            this.cleanArray();
           }
 
         }
@@ -105,6 +112,20 @@ export class MatchingGameComponent {
             break
           }
         }
+
+        for(let j = 0 ; j < this.originStatus.length;j++ ){
+          if(this.originStatus[j] === WordStatus.SELECTED){
+            const check = this.currentCards.find((card)=>card.target ===  this.shuffleTarget[i])
+            if(check?.origin == this.currentCards[j].origin){
+              alert('greate')
+            }
+            else{
+              alert('try again')
+            }
+            this.cleanArray();
+          }
+
+        }
       }
 
 
@@ -113,7 +134,10 @@ export class MatchingGameComponent {
 
   }
 
-  
+  cleanArray(){
+    this.targetStatus = [WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL]
+    this.originStatus = [WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL]
+  }
   
 
 }
