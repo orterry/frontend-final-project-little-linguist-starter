@@ -6,6 +6,12 @@ import { WordStatus } from '../../../shared/model/matching-game-model';
 import { DialogComponent } from '../dialog/dialog/dialog.component';
 import { CommonModule } from '@angular/common';
 import { WordComponent } from '../word/word/word.component';
+import { MatDialog } from '@angular/material/dialog';
+import { GamePoint } from '../../../shared/model/game-points';
+import {PointsService} from '../../../../src/app/services/points-service'
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-matching-game',
@@ -26,8 +32,10 @@ export class MatchingGameComponent {
   successesCount=0
   currentPointsCount=0
   pointsForCurrentRoundCount=0
+  pointsService:PointsService = new PointsService()
+  
 
-  constructor(){
+  constructor(private dialogService : MatDialog,private router : Router){
     this.initGame()
   }
 
@@ -55,6 +63,7 @@ export class MatchingGameComponent {
   }
 
   initGame(){
+    this.pointsForCurrentRoundCount = 16;
     this.currentCategory = JSON.parse(localStorage.getItem("currentCategory")||'') as Category;
     if(this.currentCategory.words.length >= 5){
       this.choose5words();
@@ -86,12 +95,15 @@ export class MatchingGameComponent {
           if(this.targetStatus[j] === WordStatus.SELECTED){
             const check = this.currentCards.find((card)=>card.target === this.shuffleTarget[j])
             if(check?.origin == this.currentCards[i].origin){
-              alert('greate')
+              this.dialogService.open(DialogComponent,{data:true});
+              this.targetStatus[j] = WordStatus.DISABLED
+              this.originStatus[i] = WordStatus.DISABLED
             }
             else{
-              alert('try again')
+              this.dialogService.open(DialogComponent,{data:false});
+              this.pointsForCurrentRoundCount -= 2
+              this.cleanArray();
             }
-            this.cleanArray();
           }
 
         }
@@ -117,12 +129,15 @@ export class MatchingGameComponent {
           if(this.originStatus[j] === WordStatus.SELECTED){
             const check = this.currentCards.find((card)=>card.target ===  this.shuffleTarget[i])
             if(check?.origin == this.currentCards[j].origin){
-              alert('greate')
+              this.dialogService.open(DialogComponent,{data:true});
+              this.originStatus[j] = WordStatus.DISABLED
+              this.targetStatus[i] = WordStatus.DISABLED
             }
             else{
-              alert('try again')
+              this.dialogService.open(DialogComponent,{data:false});
+              this.pointsForCurrentRoundCount -= 2
+              this.cleanArray();
             }
-            this.cleanArray();
           }
 
         }
@@ -131,13 +146,38 @@ export class MatchingGameComponent {
 
     }
 
-
+    this.finishGame()
   }
 
   cleanArray(){
-    this.targetStatus = [WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL]
-    this.originStatus = [WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL,WordStatus.NORMAL]
+    for(let i = 0 ; i < this.targetStatus.length;i++){
+      if(this.targetStatus[i]===WordStatus.SELECTED){
+        this.targetStatus[i]=WordStatus.NORMAL
+      }
+      if(this.originStatus[i]===WordStatus.SELECTED){
+        this.originStatus[i]=WordStatus.NORMAL
+      }
+    }
+
   }
+
+  finishGame(){
+    for(let i = 0 ; i < this.originStatus.length;i++){
+        if(this.originStatus[i]!==WordStatus.DISABLED){
+          return;
+        }
+      }
+      const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.pointsForCurrentRoundCount,this.currentCards)
+      localStorage.setItem("gameResult",JSON.stringify(game))
+      this.router.navigate(['result'])
+    }
+
+
+    
   
 
 }
+
+
+
+

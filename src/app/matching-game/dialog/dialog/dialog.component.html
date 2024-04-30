@@ -1,1 +1,31 @@
-<p>dialog works!</p>,
+<div mat-dialog-content>
+    <!-- Are you sure you want to delete category {{ categoryName }} -->
+    <p *ngIf="data == false">Incorrect, Give it another try</p>
+    <p *ngIf="data == true">Great Job!</p>
+
+</div>
+<div class="center" mat-dialog-actions>
+
+ 
+    <button
+        class="btnDialog" 
+        *ngIf="data == true"
+        cdkFocusInitial 
+        color="primary"
+        mat-button 
+        [mat-dialog-close]="true"
+        >CONTINUE</button>
+
+        <button 
+        class="btnDialog" 
+        *ngIf="data == false"
+        cdkFocusInitial 
+        color="primary"
+        mat-button 
+        [mat-dialog-close]="true"
+        >GOT IT</button>
+         
+
+    
+   
+</div>

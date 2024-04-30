@@ -1,5 +1,8 @@
 <div class="orderCards">
     <!-- Left column for currentCards -->
+    <div>
+      <p [innerText]="pointsForCurrentRoundCount.toString()"></p>
+    </div>
     <div class="left-column">
       <div *ngFor="let c of currentCards; let i = index" class="category-card">
         <div (click)="chooseCard('origin',i)">

@@ -32,7 +32,7 @@ changeColor(){
   else if(this.wordStatus === WordStatus.SELECTED){
     this.color = 'blue'
   }
-  else{
+  else if(this.wordStatus === WordStatus.DISABLED){
     this.color = 'gray'
   }
   return this.color

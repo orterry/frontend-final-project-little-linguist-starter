@@ -1,3 +1,13 @@
-:host {
+/* :host {
   display: block;
+} */
+/* 
+.btnDialog{
+  justify-items: center;
+  color: green;
+}  */
+
+.center{
+  display: flex;
+  justify-content: center;
 }
