@@ -12,7 +12,6 @@ import {PointsService} from '../../../../src/app/services/points-service'
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-matching-game',
   standalone: true,
@@ -63,7 +62,7 @@ export class MatchingGameComponent {
   }
 
   initGame(){
-    this.pointsForCurrentRoundCount = 16;
+    this.pointsForCurrentRoundCount = 100;
     this.currentCategory = JSON.parse(localStorage.getItem("currentCategory")||'') as Category;
     if(this.currentCategory.words.length >= 5){
       this.choose5words();
@@ -98,10 +97,13 @@ export class MatchingGameComponent {
               this.dialogService.open(DialogComponent,{data:true});
               this.targetStatus[j] = WordStatus.DISABLED
               this.originStatus[i] = WordStatus.DISABLED
+              this.attemptsCount += 1
+              this.successesCount += 1
             }
             else{
               this.dialogService.open(DialogComponent,{data:false});
               this.pointsForCurrentRoundCount -= 2
+              this.attemptsCount += 1
               this.cleanArray();
             }
           }
@@ -132,10 +134,13 @@ export class MatchingGameComponent {
               this.dialogService.open(DialogComponent,{data:true});
               this.originStatus[j] = WordStatus.DISABLED
               this.targetStatus[i] = WordStatus.DISABLED
+              this.attemptsCount += 1
+              this.successesCount += 1
             }
             else{
               this.dialogService.open(DialogComponent,{data:false});
               this.pointsForCurrentRoundCount -= 2
+              this.attemptsCount += 1
               this.cleanArray();
             }
           }
@@ -167,7 +172,7 @@ export class MatchingGameComponent {
           return;
         }
       }
-      const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.pointsForCurrentRoundCount,this.currentCards)
+      const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.pointsForCurrentRoundCount,this.currentCards,this.attemptsCount,this.successesCount)
       localStorage.setItem("gameResult",JSON.stringify(game))
       this.router.navigate(['result'])
     }
