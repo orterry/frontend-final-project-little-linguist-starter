@@ -4,13 +4,15 @@ import { GameService } from '../../services/game/game-service';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../../../shared/model/category';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+
 import { DialogExitComponent } from '../../dialog-exit/dialogExit/dialogExit.component';
 
 @Component({
   selector: 'app-exit-button',
   standalone: true,
   imports: [
-    CommonModule,
+    CommonModule,MatIconModule
   ],
   templateUrl: './exitButton.component.html',
   styleUrl: './exitButton.component.css',

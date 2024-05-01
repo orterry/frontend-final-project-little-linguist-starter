@@ -1,1 +1,17 @@
-<p>mixed-game works!</p>
+<div class="main">
+    <h1 class="title">Mixed Letter - {{currentCategory.name}}</h1>
+    <p class="minimize-margin"> {{target}} </p>
+    <p>
+        <span *ngFor="let letter of origin">{{ letter }} </span>
+    </p>
+    <div>
+        <span>Guess:</span> <input [value]="inputValue" (change)="handleChange($event)" type="text">
+    </div>
+    <br>
+    <div class="center">
+        <button (click)="resetValue()">RESET</button><button (click)="nextWord()">SUBMIT</button>
+    </div>
+    <div class="progress-bar">
+        <mat-progress-bar mode="determinate" [value]="calculateProgress()"></mat-progress-bar>
+    </div>
+</div>

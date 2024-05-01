@@ -1,0 +1,30 @@
+.main{
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border: 5px solid black;
+}
+
+.title{
+    text-align: center;
+}
+
+.progress-bar{
+    margin-top: 30px;
+}
+
+button{
+    margin-left: 5px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.minimize-margin{
+    margin-bottom: 0;
+}

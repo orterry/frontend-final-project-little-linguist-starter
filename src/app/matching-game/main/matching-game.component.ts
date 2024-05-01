@@ -10,12 +10,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { GamePoint } from '../../../shared/model/game-points';
 import {PointsService} from '../../../../src/app/services/points-service'
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @Component({
   selector: 'app-matching-game',
   standalone: true,
-  imports: [WordComponent,CommonModule],
+  imports: [WordComponent,CommonModule,MatIconModule],
   templateUrl: './matching-game.component.html',
   styleUrl: './matching-game.component.css'
 })

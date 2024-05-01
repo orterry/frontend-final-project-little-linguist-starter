@@ -6,6 +6,7 @@ import { ChooseCategoryComponent } from './choose-category/choose-category.compo
 import { MixedGameComponent } from './mixed-game/mixed-game.component';
 import { HelpComponentComponent } from './help-component/help-component.component';
 import { ResultComponent } from './result/result.component';
+import { ResultMixedGameComponent } from './result-mixed-game/result-mixed-game.component';
 
 export const routes: Routes = [
     {path: "", component: CategoriesListComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: "mixed", component: MixedGameComponent},
     {path: "help", component: HelpComponentComponent}, 
     {path: "result", component: ResultComponent}, 
+    {path: "resultmixedgame", component: ResultMixedGameComponent}
 
     
 
