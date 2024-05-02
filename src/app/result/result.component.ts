@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GamePoint } from '../../shared/model/game-points';
 import { TranslatedWord } from '../../shared/model/translated-word';
 import { RouterModule } from '@angular/router';
+import { GameResult } from '../../shared/model/game-result';
 
 enum grade{
   Fail='Fail',
@@ -27,8 +28,16 @@ export class ResultComponent {
   gameDetails:GamePoint=new GamePoint(0,'',0,[],0,0)
   gradeStatus : grade = grade.Fail
 
+  dashboardResultSave(){
+    const dashboardDetails = JSON.parse(localStorage.getItem("dashboardResult")||'') as GameResult;
+    dashboardDetails.gamesCounter+=1;
+    dashboardDetails.pointCounter+=this.gameDetails.successesCount;
+    localStorage.setItem("dashboardResult",JSON.stringify(dashboardDetails))
+  }
+
   ngOnInit(): void {
     this.gameDetails = JSON.parse(localStorage.getItem('gameResult')||'') as GamePoint 
+    this.dashboardResultSave()
     if(this.gameDetails.currentPoint > 80){
       this.gradeStatus = grade.Excellent
     }
