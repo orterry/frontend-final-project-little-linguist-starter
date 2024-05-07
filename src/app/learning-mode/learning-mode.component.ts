@@ -6,7 +6,7 @@ import { Category } from '../../shared/model/category';
 import { CategoryCardComponent } from "../category-card/category-card.component";
 import { CategoriesService } from '../services/categories.service';
 import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
-
+import { Input } from '@angular/core';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { GameSelectionDialogComponent } from '../game-selection-dialog/game-sele
   
 })
 export class LearningModeComponent implements OnInit {
-  
+  @Input() currentCategory: string | undefined;
   allCategories: Category[] | undefined; 
 
   constructor(private dialog: MatDialog, private categoryService: CategoriesService) { }

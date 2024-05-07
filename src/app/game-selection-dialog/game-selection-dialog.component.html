@@ -1,7 +1,6 @@
 <mat-dialog-content>
-  <p>Game Selection</p>
+  <h2 id = "M">Please select one of the games</h2>
 <div>
-  <h2>Difficulty:Hard</h2>
   <ul>
     <li>Description:choose evrey words translation from a list of 4 options</li>
     
@@ -13,7 +12,16 @@
 </ul>
 <button (click)="navigateToGame()">Start Game</button>
 </mat-dialog-content>
+
+
 <mat-dialog-actions>
   <button mat-button [mat-dialog-close]="false">Select</button>
   <button mat-button [mat-dialog-close]="true">Cancel</button>
 </mat-dialog-actions>
+<select name="gameSelect" id="gameSelect" (change)="onSelectChange($event)">
+  <option value={{gameDetails.getGames()[0].id}}>{{gameDetails.getGames()[0].name}}</option>
+  <option value={{gameDetails.getGames()[1].id}}>{{gameDetails.getGames()[1].name}}</option>
+</select><br/>
+<h2 id="D">Difficulty: {{difficulty}}</h2>
+<h2 id="A">Description :{{description}}</h2>
+<h2 id="Z">From a list of {{gameDetails.getGames().length}} options</h2>

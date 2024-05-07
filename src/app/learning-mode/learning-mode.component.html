@@ -2,8 +2,7 @@
 <h1>Lets play</h1>
 <div class="learning-mode">
   <div *ngFor="let c of allCategories" class="category-card">
-    <app-category-card [currentCategory]="c" 
-      (click)="openGameSelectionDialog(c.name)"></app-category-card>
+    <app-category-card ="c" >(click)="openGameSelectionDialog(c.name)"></app-category-card>
   
   </div>
 </div>

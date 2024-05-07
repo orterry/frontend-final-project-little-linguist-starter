@@ -15,16 +15,21 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrl: './choose-game-dialog.component.css'
 })
 export class ChooseGameDialogComponent implements OnInit {
+sendCategoryGame() {
+throw new Error('Method not implemented.');
+}
   allGames : GameChooseDialog[] = [];
   selectedGames? : GameChooseDialog;
 game: any;
   GameChosseDialogService: any;
+selectedRoute: any;
 
     constructor(){}
   
     ngOnInit(): void {
       this.allGames = this.GameChosseDialogService.list()
       }
+      
    }
 
 

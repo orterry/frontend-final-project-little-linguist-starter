@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ExitConfirmationDialogComponent } from '../exit-confirmation-dialog/exit-confirmation-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ChooseGameDialogComponent } from '../choose-game-dialog/choose-game-dialog.component';
+import { Category } from '../../shared/model/category';
+import { constructor } from 'jasmine';
 
 
 @Component({
@@ -27,3 +30,17 @@ export class ExitButtonComponent {
     });
   }
 }
+constructor(private dialogService : MatDialog,gameService:GameService){}
+@Input()
+currentcategory? : Category;
+
+
+openDialog() {
+  this.dialogService.open(ChooseGameDialogComponent);
+
+
+}
+function openDialog() {
+  throw new Error('Function not implemented.');
+}
+
