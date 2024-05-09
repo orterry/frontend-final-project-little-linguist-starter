@@ -1,10 +1,10 @@
 <div class="delete-category-dialog-container">
     <div class="delete-category-message">
-        <p>Are you sure you want to delete the category:</p>
-        <p class="category-name">{{ categoryName }}</p>
+        <p id="a">Are you sure you want to delete the category:</p>
+        <p class="category-name" id="c">{{ categoryName }}</p>
     </div>
     <div class="delete-category-actions">
-        <button class="delete-button" mat-button color="warn" [mat-dialog-close]="true">Delete</button>
-        <button class="cancel-button" mat-button [mat-dialog-close]="false">Cancel</button>
+        <button class="delete-button" mat-button color="warn" [mat-dialog-close]="true" id="delete-button">Delete</button>
+        <button class="cancel-button" mat-button [mat-dialog-close]="false" id="cancel-button">Cancel</button>
     </div>
 </div>

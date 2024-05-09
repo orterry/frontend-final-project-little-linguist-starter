@@ -38,12 +38,12 @@ mat-dialog-actions button:hover {
   background-color: rgb(20, 230, 66);
 }
 
-#L {
+#exit-message{
   text-align: center;
   font-size: 28px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   color: #cd25e3;
-  text-shadow: 8px 6px 6px rgba(224, 27, 96, 0.326); /* הוספת צל טקסט */
+  text-shadow: 8px 6px 6px rgba(224, 27, 96, 0.326); 
   margin-bottom: 20px;
 }

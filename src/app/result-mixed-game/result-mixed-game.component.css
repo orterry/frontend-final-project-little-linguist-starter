@@ -1,86 +1,89 @@
-.main{
-  display: flex;
-  padding: 30px;
-  flex-direction: column;
-  font-weight: bolder;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  border: 15px solid rgb(175, 14, 215);
-  background-color: rgb(235, 163, 30);
-  scroll-behavior: auto;
+
+#unique-main {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 0 auto;
+  width: 600px;
 }
-.title{
+
+.unique-title {
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
   text-align: center;
 }
 
-#r {
-  font-size: 32px; 
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold; 
-  text-align: center; 
-  margin-bottom: 20px; 
-  color: rgb(222, 28, 161);
+.unique-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.title {
-  font-size: 18px; 
-  color: #666; 
-  margin-bottom: 10px; 
+#unique-score,
+#unique-success-rate {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
 }
 
-#q {
-  font-size: 20px; 
-  color: #06f6ba; 
-  margin-bottom: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+#unique-score {
+  color: #007bff;
 }
 
-#w {
-  font-size: 16px; 
-  color: #f6065e; 
-  margin-bottom: 10px; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+#unique-success-rate {
+  color: #28a745;
 }
 
-td {
-  padding: 5px 10px; 
+#unique-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-#g, #k {
-  font-size: 24px; 
-  margin-right: 5px; 
-  color: #1de674;
+.unique-origin,
+.unique-target {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
-#c {
-  display: block;
-  width: 200px; 
-  margin: 20px auto; 
-  padding: 10px 20px; 
-  background-color: #23abd4; 
+.unique-icon {
+  text-align: center;
+}
+
+.unique-icon mat-icon {
+  font-size: 32px;
+  color: #ddd;
+  transition: color 0.3s ease;
+}
+
+.unique-origin:hover .unique-icon mat-icon,
+.unique-target:hover .unique-icon mat-icon {
+  color: #007bff;
+}
+
+#unique-icon-check {
+  color: #28a745;
+}
+
+#unique-icon-clear {
+  color: #dc3545;
+}
+
+#unique-button {
+  background-color: #007bff;
   color: #fff;
-  border: none; 
-  border-radius: 5px; 
-  font-size: 16px; 
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.5s ease; 
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
 }
 
-#c:hover {
-  background-color: #50cc17; 
+#unique-button:hover {
+  background-color: #0056b3;
 }
-
-#h {
-  font-size: 18px; 
-  color: #0581f4; 
-  font-weight: bold;
-}
-
-#d {
-  font-size: 18px; 
-  color: #e6f605; 
-  font-style: italic; 
-}
-

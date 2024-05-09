@@ -8,3 +8,12 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.mat-icon {
+  color: #2509db;
+  transition: transform 0.3s ease;
+}
+
+.footer-container:hover .mat-icon {
+  transform: scale(1.2);
+}

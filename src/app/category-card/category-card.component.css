@@ -6,11 +6,11 @@
    }
 
 
-   .card-container {
+   #a {
     width: 200px; 
     height: 150px;
-    background-color: #cae117;
-    box-shadow: 0 2px 5px rgba(217, 11, 152, 0.1);
+    background-color: #17e164;
+    box-shadow: 0 2px 5px rgba(222, 154, 8, 0.1);
     border-radius: 4px;
     cursor: pointer; 
     margin: 10px;
@@ -19,17 +19,21 @@
     justify-content: center;
     align-items: center;
   }
+  #a:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל מודגש יותר במעבר עכבר */
+  }
 
   mat-card-title {
     font-weight: bold;
+    text-align: center;
     font-size: 35px;
-    color: #510bea; 
+    color: #ea820b; 
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
 
   mat-card-content div {
-    font-size: 25px;
-    color: #cea006;
+    font-size: 32px;
+    color: #f11282;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }

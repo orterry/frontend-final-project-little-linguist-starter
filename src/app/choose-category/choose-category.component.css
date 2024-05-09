@@ -14,18 +14,18 @@
   text-align: center;
 }
 
-.categoty-card {
+#x {
   width: 250px;
   margin: 20px;
   border-radius: 20px;
   box-shadow: 20px 20px 20px rgba(18, 44, 173, 0.1);
-  background-color: #eb0bdc;
+  background-color: #ebb30b;
   transition: all 0.5s ease;
 }
 
-.categoty-card:hover {
+#x:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 0px 30px rgba(211, 26, 128, 0.2);
+  box-shadow: 0px 0px 30px rgba(236, 194, 11, 0.2);
 }
 
 #l {
