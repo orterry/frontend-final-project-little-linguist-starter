@@ -1,0 +1,21 @@
+<div id="unique-main">
+    <h1 class="unique-title" id="unique-title">Mixed Letters - {{ gameDetails.name }} - Results</h1>
+    <div class="unique-info">
+      <p id="unique-score">Your score: {{ gameDetails.currentPoint.toFixed(0) }}</p>
+      <p id="unique-success-rate">You translated {{ gameDetails.successesCount }} out of {{ gameDetails.attemptsCount }} words correctly</p>
+    </div>
+    <table id="unique-table">
+      <tbody>
+        <tr *ngFor="let word of gameDetails.currentCards">
+          <td class="unique-origin" id="unique-origin">Origin: {{ word.origin }}</td>
+          <td class="unique-target" id="unique-target">Target: {{ word.target }}</td>
+          <td class="unique-icon">
+            <mat-icon *ngIf="word.guess === 'false'" id="unique-icon-clear">clear</mat-icon>
+            <mat-icon *ngIf="word.guess !== 'false'" id="unique-icon-check">check</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="navigateToChoose()" id="unique-button">New Game</button>
+  </div>
+  

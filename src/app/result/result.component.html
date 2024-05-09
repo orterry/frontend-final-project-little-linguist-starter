@@ -1,0 +1,21 @@
+<div id="unique-container">
+    <h2>{{ gameDetails.name }}</h2>
+    <p id="unique-score">Your score: {{ gameDetails.currentPoint }}</p>
+    <p>{{ ((gameDetails.successesCount / gameDetails.attemptsCount) * 100).toFixed(0) || 0 }}% {{ gradeStatus }}</p>
+    <table id="unique-table">
+      <thead>
+        <tr>
+          <th>Origin</th>
+          <th>Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let word of gameDetails.currentCards">
+          <td>{{ word.origin }}</td>
+          <td>{{ word.target }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="newGame()" id="unique-button">New Game</button>
+  </div>
+  

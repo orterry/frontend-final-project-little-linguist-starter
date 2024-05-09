@@ -1,0 +1,18 @@
+<div class="main" id="unique-id">
+    <h1 class="title" id="unique-id">Mixed Letter - {{ currentCategory.name }}</h1>
+    <p class="minimize-margin" id="unique-id">{{ target }}</p>
+    <p>
+        <span *ngFor="let letter of origin" id="unique-id">{{ letter }}</span>
+    </p>
+    <div>
+        <span id="unique-id">Guess:</span> <input [value]="inputValue" (input)="handleChange($event)" type="text">
+    </div>
+    <br>
+    <div class="center">
+        <button (click)="resetValue()" id="unique-id">Reset <mat-icon>loop</mat-icon></button>
+        <button (click)="nextWord()" id="unique-id">Submit <mat-icon>forward</mat-icon></button>
+    </div>
+    <div class="progress-bar" id="unique-id">
+        <mat-progress-bar mode="determinate" [value]="calculateProgress()" id="unique-id"></mat-progress-bar>
+    </div>
+</div>

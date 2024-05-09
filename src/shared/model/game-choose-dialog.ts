@@ -1,4 +1,4 @@
-import { GameDifficulty } from "./game-difficulty.enum";
+import { GameDifficulty } from "./game-difficulty";
 
 
 export class GameChooseDialog {

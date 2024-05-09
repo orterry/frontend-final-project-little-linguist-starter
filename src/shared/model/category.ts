@@ -4,15 +4,11 @@ import { TranslatedWord } from "./translated-word";
 export class Category {
     lastUpdateDate = new Date();
     words : TranslatedWord[] = [];
-wordCount: any;
-updatedThisWeek: any;
-description: any;
-difficulty: any;
+fieldName: Category|undefined;
 
-constructor(public id: number,
+    constructor(public id: number,
         public name : string,
         public origin : Language,
         public target : Language) {
     }
 }
-

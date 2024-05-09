@@ -1,33 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, Input } from '@angular/core';
+import { Category } from '../../shared/model/category';
 import { MatCardModule } from '@angular/material/card';
-
-import { MatDialog } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { GameSelectionDialogComponent } from '../game-selection-dialog/game-selection-dialog.component';
-import { CategorySelectComponent } from '../category-select/category-select.component';
-
-
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import { GameService } from '../services/game-service';
 
 @Component({
   selector: 'app-category-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule,MatIconModule,CategorySelectComponent],
+  imports: [MatCardModule],
   templateUrl: './category-card.component.html',
   styleUrl: './category-card.component.css'
 })
 export class CategoryCardComponent {
- 
+  constructor(
+    private dialogService : MatDialog,gameService:GameService){}
   @Input()
-  currentcategory!: string;
-  constructor(private GameChosseDialogService : MatDialog){}
-  
-  
-  openGame (id?: number, _name?: string) {
-    const dialogRef = this.GameChosseDialogService.open(GameSelectionDialogComponent,{
-      data : id,
-    });
+  currentcategory? : Category;
+
+
+  openDialog() {
+    let dialogRef = this.dialogService.open(DialogComponent,{data:this.currentcategory});
   }
-
-
+ 
 }
