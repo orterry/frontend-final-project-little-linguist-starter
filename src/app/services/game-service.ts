@@ -6,21 +6,14 @@ import { GameDifficulty } from '../../shared/model/game-difficulty';
   providedIn: 'root'
 })
 export class GameService {
-  getGames(): any {
-    throw new Error('Method not implemented.');
-  }
   private games: GameProfile[] = [
-    new GameProfile (1,  'Memory Game', 'A memory testing game', GameDifficulty.MEDIUM, "memory"),
-    new GameProfile (4, 'Word Association', 'A game to associate words', GameDifficulty.EASY, "association") 
+    new GameProfile (2, 'English word matching game', 'A game where you have to match the English words to the Hebrew words and vice versa', GameDifficulty.MEDIUM, 'matching'),
+    new GameProfile (3, 'Messy word game in English', 'You must write the words in English in the order they are written', GameDifficulty.HARD, 'mixed')
   ];
 
   constructor() { }
 
-  getAllGames(): GameProfile[] {
+  getGames(): GameProfile[] {
     return this.games;
-  }
-
-  getGameById(id: number): GameProfile | undefined {
-    return this.games.find(game => game.id === id);
   }
 }

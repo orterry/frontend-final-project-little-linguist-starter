@@ -24,7 +24,7 @@ import { NgFor } from '@angular/common';
 export class DialogComponent implements OnInit {
   public selectedValue: number = 2;
   public selectedRoute: string = 'matching';
-  public gameDetails: any; 
+  public gameDetails: any; // Change the type as per your GameService
   public selectedGameId: number | undefined;
   public difficulty: string = 'easy';
   public description: string = '';

@@ -5,8 +5,8 @@
   <select name="gameSelect" id="gameSelect" (change)="onSelectChange($event)">
     <option *ngFor="let game of gameDetails" [value]="game.id">{{ game.name }}</option>
   </select><br />
-  <h2 id="D">Difficulty: {{ difficulty }}</h2>
-  <h2 id="A">Description: {{ description }}</h2>
+  <h2 id="D">Game difficulty level: {{ difficulty }}</h2>
+  <h2 id="A">Game description: {{ description }}</h2>
   <h2 id="Z">From a list of {{ gameDetails.length }} options</h2>
 
   <button (click)="sendCategoryGame()" cdkFocusInitial color="primary" mat-button [mat-dialog-close]="true"
