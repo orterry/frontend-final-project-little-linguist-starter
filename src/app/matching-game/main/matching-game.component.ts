@@ -9,7 +9,7 @@ import { TranslatedWord } from '../../../shared/model/translated-word';
 import { WordStatus } from '../../../shared/model/matching-game-model';
 import { WordComponent } from '../word/word.component';
 import { DialogComponent } from '../../dialog/dialog.component';
-import { PointsService } from '../../services/points-service';
+import { PointsService } from '../../../../src/app/services/points-service';
 import { GamePoint } from '../../../shared/model/game-points';
 
 

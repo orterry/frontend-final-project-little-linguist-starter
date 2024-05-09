@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-dialog',
   standalone:true,
-  imports:[CommonModule,MatIconModule,MatDialogClose],
+  imports:[CommonModule,MatIconModule,MatDialogClose,],
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })

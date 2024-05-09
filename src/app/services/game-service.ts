@@ -10,8 +10,8 @@ export class GameService {
     throw new Error('Method not implemented.');
   }
   private games: GameProfile[] = [
-    new GameProfile (1,  'Memory Game', 'A memory testing game', GameDifficulty.Medium, "memory"),
-    new GameProfile (4, 'Word Association', 'A game to associate words', GameDifficulty.Easy, "association") 
+    new GameProfile (1,  'Memory Game', 'A memory testing game', GameDifficulty.MEDIUM, "memory"),
+    new GameProfile (4, 'Word Association', 'A game to associate words', GameDifficulty.EASY, "association") 
   ];
 
   constructor() { }
