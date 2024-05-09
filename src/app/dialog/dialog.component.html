@@ -1,15 +1,21 @@
 <div mat-dialog-content>
-    <h2 id="M">Please select one of the games</h2>
-  </div>
-  <div class="center" mat-dialog-actions>
-    <select name="gameSelect" id="gameSelect" (change)="onSelectChange($event)">
-      <option *ngFor="let game of gameDetails" [value]="game.id">{{ game.name }}</option>
-    </select><br />
-    <h2 id="D">Difficulty: {{ difficulty }}</h2>
-    <h2 id="A">Description: {{ description }}</h2>
-    <h2 id="Z">From a list of {{ gameDetails.length }} options</h2>
-  
-    <button (click)="sendCategoryGame()" cdkFocusInitial color="primary" mat-button [mat-dialog-close]="true"
-      [routerLink]="['/', selectedRoute]" id="p">PLAY</button>
-  </div>
-  
+  <h2 id="dialogTitle">Choose a game to play</h2>
+</div>
+
+<div class="center" mat-dialog-actions>
+  <select name="gameSelect" id="gameSelect" (change)="onSelectChange($event)">
+      <option *ngFor="let game of games" [value]="game.id">{{ game.name }}</option>
+  </select>
+  <br/>
+  <h2>Difficulty: {{ difficulty }}</h2>
+  <h2>Description: {{ description }}</h2>
+  <h2>Options available: {{ games.length }}</h2>
+
+  <button 
+      (click)="sendCategoryGame()"
+      cdkFocusInitial 
+      color="primary"
+      mat-button 
+      [mat-dialog-close]="true"
+      [routerLink]="['/', selectedRoute]">PLAY</button>
+</div>

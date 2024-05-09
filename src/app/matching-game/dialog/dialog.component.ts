@@ -13,5 +13,5 @@ import { MatIconModule } from '@angular/material/icon';
 export class DialogComponent { 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: boolean) { }
-  d:boolean = true
+  
 }

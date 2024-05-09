@@ -1,3 +1,43 @@
-:host {
-  display: block;
+/* CSS for mat-dialog-content */
+mat-dialog-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* CSS for centering mat-dialog-actions */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CSS for select element */
+#gameSelect {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* CSS for h2 elements */
+h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* CSS for button */
+button#p {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button#p:hover {
+  background-color: #0056b3;
 }

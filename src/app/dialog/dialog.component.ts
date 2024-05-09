@@ -1,63 +1,59 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
 import { GameService } from '../services/game-service';
 import { GameDifficulty } from '../../shared/model/game-difficulty';
-import { RouterModule } from '@angular/router';
 import { Category } from '../../shared/model/category';
+import { RouterModule } from '@angular/router';
 import { NgFor } from '@angular/common';
+
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
-  imports:[
+  imports: [
     MatButtonModule,
     MatDialogContent,
-    MatDialogActions,NgFor,
+    MatDialogActions,
     MatDialogClose,
-    RouterModule
-  ],
+    RouterModule,NgFor ],
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css'],
+  styleUrl: './dialog.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DialogComponent implements OnInit {
-  public selectedValue: number = 2;
-  public selectedRoute: string = 'matching';
-  public gameDetails: any; // Change the type as per your GameService
-  public selectedGameId: number | undefined;
-  public difficulty: string = 'easy';
+export class DialogComponent {
+  public selectedValue: number = 0;
+  public selectedRoute: string = '';
+  public difficulty: string = '';
   public description: string = '';
+games: any;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public currentcategory: Category, private gameService: GameService) {}
-
-  ngOnInit(): void {
-    this.gameDetails = this.gameService.getGames();
-    this.setDefaultValues();
+  constructor(@Inject(MAT_DIALOG_DATA) public currentcategory: Category, private gameService: GameService) {
+    const games = this.gameService.getGames();
+    if (games.length > 0) {
+      const firstGame = games[0];
+      this.selectedValue = firstGame.id;
+      this.selectedRoute = firstGame.url || '';
+      this.description = firstGame.description || '';
+      this.setDifficulty(firstGame.difficulty);
+    }
   }
 
-  onSelectChange(event: any): void {
+  onSelectChange(event: any) {
     this.selectedValue = Number(event.target.value);
-
-    const selectedGame = this.gameDetails.find((game: any) => game.id === this.selectedValue);
+    const selectedGame = this.gameService.getGameById(this.selectedValue);
     if (selectedGame) {
-      this.description = selectedGame.description || '';
       this.selectedRoute = selectedGame.url || '';
+      this.description = selectedGame.description || '';
       this.setDifficulty(selectedGame.difficulty);
     }
   }
-  sendCategoryGame(): void {
-    localStorage.setItem('currentCategory', JSON.stringify(this.currentcategory));
+
+  sendCategoryGame() {
+    localStorage.setItem("currentCategory", JSON.stringify(this.currentcategory));
   }
 
-  private setDefaultValues(): void {
-    const defaultGame = this.gameDetails[0];
-    this.description = defaultGame.description || '';
-    this.selectedRoute = defaultGame.url || '';
-    this.setDifficulty(defaultGame.difficulty);
-  }
-
-  private setDifficulty(difficulty: GameDifficulty): void {
+  private setDifficulty(difficulty: GameDifficulty | undefined) {
     switch (difficulty) {
       case GameDifficulty.Easy:
         this.difficulty = 'easy';
@@ -69,7 +65,7 @@ export class DialogComponent implements OnInit {
         this.difficulty = 'hard';
         break;
       default:
-        this.difficulty = 'unknown';
+        this.difficulty = '';
         break;
     }
   }

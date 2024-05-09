@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-dialog-exit',
+  selector: 'app-dialog-Exit',
   standalone: true,
   imports:[CommonModule,MatButtonModule,MatIconModule,RouterLink,MatDialogContent,MatDialogClose,
     MatDialogActions],
