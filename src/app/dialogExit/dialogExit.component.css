@@ -23,14 +23,14 @@ mat-dialog-actions button:hover {
   background-color: #ade727;
 }
 
-#exitButton:hover{
+#exit-button:hover{
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
   color: rgb(39, 36, 37);
   background-color: rgb(230, 20, 20);
 }
-#cancelButton:hover{
+#cancel-button:hover{
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
