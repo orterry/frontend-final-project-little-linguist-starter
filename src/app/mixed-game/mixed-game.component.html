@@ -1,18 +1,29 @@
-<div class="main" id="unique-id">
-    <h1 class="title" id="unique-id">Mixed Letter - {{ currentCategory.name }}</h1>
-    <p class="minimize-margin" id="unique-id">{{ target }}</p>
-    <p>
-        <span *ngFor="let letter of origin" id="unique-id">{{ letter }}</span>
-    </p>
-    <div>
-        <span id="unique-id">Guess:</span> <input [value]="inputValue" (input)="handleChange($event)" type="text">
-    </div>
-    <br>
-    <div class="center">
-        <button (click)="resetValue()" id="unique-id">Reset <mat-icon>loop</mat-icon></button>
-        <button (click)="nextWord()" id="unique-id">Submit <mat-icon>forward</mat-icon></button>
-    </div>
-    <div class="progress-bar" id="unique-id">
-        <mat-progress-bar mode="determinate" [value]="calculateProgress()" id="unique-id"></mat-progress-bar>
-    </div>
+<div class="main">
+    <h1 class="title">Mixed Letters - {{ categoryName }}</h1>
+    <ng-container *ngIf="!gameEnded; else gameOver">
+        <p>Guess the word:</p>
+        <p>
+            <span *ngFor="let letter of shuffledWord">{{ letter }}</span>
+        </p>
+        <div>
+            <span>Enter your guess:</span> <input [(ngModel)]="userInput" type="text">
+        </div>
+        <br>
+        <div>
+            <button (click)="resetGame()">Reset</button>
+            <button (click)="checkAnswer()">Submit</button>
+        </div>
+        <div>
+            <p>Attempts: {{ attempts }}</p>
+            <p>Successes: {{ successes }}</p>
+            <mat-progress-bar mode="determinate" [value]="calculateProgress()"></mat-progress-bar>
+        </div>
+    </ng-container>
+    <ng-template #gameOver>
+        <div class="game-over">
+            <h2>Game Over!</h2>
+            <p>You've reached the maximum number of attempts.</p>
+            <button (click)="resetGame()">Play Again</button>
+        </div>
+    </ng-template>
 </div>
