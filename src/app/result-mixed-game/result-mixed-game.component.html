@@ -1,21 +1,21 @@
-<div id="unique-main">
-    <h1 class="unique-title" id="unique-title">Mixed Letters - {{ gameDetails.name }} - Results</h1>
-    <div class="unique-info">
-      <p id="unique-score">Your score: {{ gameDetails.currentPoint.toFixed(0) }}</p>
-      <p id="unique-success-rate">You translated {{ gameDetails.successesCount }} out of {{ gameDetails.attemptsCount }} words correctly</p>
-    </div>
-    <table id="unique-table">
-      <tbody>
-        <tr *ngFor="let word of gameDetails.currentCards">
-          <td class="unique-origin" id="unique-origin">Origin: {{ word.origin }}</td>
-          <td class="unique-target" id="unique-target">Target: {{ word.target }}</td>
-          <td class="unique-icon">
-            <mat-icon *ngIf="word.guess === 'false'" id="unique-icon-clear">clear</mat-icon>
-            <mat-icon *ngIf="word.guess !== 'false'" id="unique-icon-check">check</mat-icon>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button (click)="navigateToChoose()" id="unique-button">New Game</button>
+<div class="main">
+  <h1 class="title" id="r">Mixed Letters - {{ gameDetails.name }} - Results</h1>
+  <div class="title">
+    <p id="q">Your score: {{ gameDetails.currentPoint.toFixed(0) }}</p>
+    <p id="w">You translated {{ gameDetails.successesCount }} out of {{ gameDetails.attemptsCount }} words correctly</p>
   </div>
-  
+  <table>
+    <tbody>
+      <tr *ngFor="let word of gameDetails.currentCards">
+        <td id="h">Origin: {{ word.origin }}</td>
+        <td id="d">Target: {{ word.target }}</td>
+        <td>
+          <mat-icon *ngIf="word.guess === 'false'" id="g">clear</mat-icon>
+          <mat-icon *ngIf="word.guess !== 'false'" id="k">check</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <button routerLink="/choose" id="c">New Game</button>
+</div>

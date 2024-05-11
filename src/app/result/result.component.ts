@@ -20,7 +20,7 @@ enum Grade {
 })
 export class ResultComponent implements OnInit {
 
-  gameDetails: GamePoint = new GamePoint(0, '', 0, [], 0, 0);
+  gameDetails: GamePoint = new GamePoint(0, '', 0,[], 0,0);
   gradeStatus: Grade = Grade.Fail;
 
   constructor(private router: Router) { }

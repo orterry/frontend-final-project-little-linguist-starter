@@ -8,7 +8,7 @@ import { Language } from '../../../shared/model/language';
 import { TranslatedWord } from '../../../shared/model/translated-word';
 import { WordStatus } from '../../../shared/model/matching-game-model';
 import { WordComponent } from '../word/word.component';
-import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { PointsService } from '../../../../src/app/services/points-service';
 import { GamePoint } from '../../../shared/model/game-points';
 
@@ -131,7 +131,7 @@ export class MatchingGameComponent {
         return;
       }
     }
-    const game: GamePoint = new GamePoint(this.currentCategory.id, this.currentCategory.name, this.pointsForCurrentRoundCount, this.currentCards, this.attemptsCount, this.successesCount);
+    const game: GamePoint = new GamePoint(this.currentCategory.id, this.currentCategory.name, this.pointsForCurrentRoundCount ,this.currentCards, this.attemptsCount, this.successesCount);
     localStorage.setItem("gameResult", JSON.stringify(game));
     this.router.navigate(['result']);
   }
