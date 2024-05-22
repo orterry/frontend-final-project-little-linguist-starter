@@ -25,13 +25,28 @@ enum grade{
 })
 export class ResultComponent {
 
-  gameDetails:GamePoint=new GamePoint(0,'',0,[],0,0)
+  gameDetails:GamePoint=new GamePoint(0,'',0,[],0,0,0,0)
   gradeStatus : grade = grade.Fail
 
   dashboardResultSave(){
-    const dashboardDetails = JSON.parse(localStorage.getItem("dashboardResult")||'') as GameResult;
+    let dashboardDetails = new GameResult()
+    try{
+      dashboardDetails = JSON.parse(localStorage.getItem("dashboardResult")||'') as GameResult;
+    }
+    catch{
+      localStorage.setItem("dashboardResult",JSON.stringify(new GameResult()))
+    }
+
+    if(this.gameDetails.secondsLeftInGame > 0){
+      dashboardDetails.endBeforeTimeEnd+=1
+    }
     dashboardDetails.gamesCounter+=1;
     dashboardDetails.pointCounter+=this.gameDetails.successesCount;
+    dashboardDetails.totalTimePlayed+=this.gameDetails.secondsPlayed
+    dashboardDetails.avgTimeDuration = dashboardDetails.totalTimePlayed/dashboardDetails.gamesCounter
+
+    dashboardDetails.gameCompletedOnTIme =(dashboardDetails.endBeforeTimeEnd / dashboardDetails.gamesCounter)*100
+    
     localStorage.setItem("dashboardResult",JSON.stringify(dashboardDetails))
   }
 

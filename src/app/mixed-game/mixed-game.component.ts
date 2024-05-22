@@ -30,14 +30,21 @@ export class MixedGameComponent {
   currentPoint:number = 100
   attemptsCount:number=0
   successesCount:number=0
+  playTime:number=0
+  secondLeft:number = 0
 
   onTimerEvent(timeLeft: number): void {
+    this.secondLeft = timeLeft
+    if(timeLeft === 0){
+      this.endGame()
+    }
     console.log(`Time left: ${timeLeft} seconds`);
   }
 
 
   ngOnInit(): void {
     this.currentCategory = JSON.parse(localStorage.getItem("currentCategory")||'') as Category;
+    this.playTimeInit()
     this.target = this.currentCategory.words[this.level].target
     this.origin = this.mixedOrigin(this.currentCategory.words[this.level].origin)
 
@@ -71,15 +78,20 @@ export class MixedGameComponent {
         this.origin = this.mixedOrigin(this.currentCategory.words[this.level+1].origin)
       }
       else{
-        const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.currentPoint,this.currentCategory.words,this.attemptsCount,this.successesCount)
-        localStorage.setItem("gameResult",JSON.stringify(game))
-        this.router.navigate(['resultmixedgame'])
+        this.endGame()
       }
       this.level+=1
       
     }
     
 
+  }
+
+  endGame(){
+    this.playTime -= this.secondLeft
+    const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.currentPoint,this.currentCategory.words,this.attemptsCount,this.successesCount,this.secondLeft,this.playTime)
+    localStorage.setItem("gameResult",JSON.stringify(game))
+    this.router.navigate(['resultmixedgame'])
   }
 
   handleChange(event: Event) {
@@ -112,6 +124,20 @@ export class MixedGameComponent {
 
     const progress = (completedItems / totalItems) * 100;
     return progress;
+  }
+
+  playTimeInit(){
+    const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
+  
+    if(difficulty === 'easy'){
+    this.playTime = 120
+    }
+    else if(difficulty === 'medium'){
+      this.playTime = 90
+    }
+    else{
+      this.playTime = 60
+    }
   }
 
   

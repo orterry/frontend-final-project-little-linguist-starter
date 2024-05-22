@@ -8,6 +8,8 @@ export class GamePoint {
         public currentCards:TranslatedWord[],
         public attemptsCount:number,
         public successesCount:number,
+        public secondsLeftInGame:number,
+        public secondsPlayed:number
 
 
 

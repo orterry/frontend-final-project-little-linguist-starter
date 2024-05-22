@@ -35,8 +35,14 @@ export class MatchingGameComponent {
   currentPointsCount=0
   pointsForCurrentRoundCount=0
   pointsService:PointsService = new PointsService()
+  secondsLeft:number = 0
+  playTime:number = 0
 
   onTimerEvent(timeLeft: number): void {
+    this.secondsLeft = timeLeft
+    if(timeLeft === 0){
+      this.endGame()
+    }
     console.log(`Time left: ${timeLeft} seconds`);
   }
   
@@ -71,6 +77,7 @@ export class MatchingGameComponent {
   initGame(){
     this.pointsForCurrentRoundCount = 100;
     this.currentCategory = JSON.parse(localStorage.getItem("currentCategory")||'') as Category;
+    this.playTimeInit()
     if(this.currentCategory.words.length >= 5){
       this.choose5words();
       this.shuffle()
@@ -179,9 +186,30 @@ export class MatchingGameComponent {
           return;
         }
       }
-      const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.pointsForCurrentRoundCount,this.currentCards,this.attemptsCount,this.successesCount)
+      this.endGame()
+    }
+    
+    
+    endGame(){
+      this.playTime -= this.secondsLeft
+      const game : GamePoint = new GamePoint(this.currentCategory.id,this.currentCategory.name,this.pointsForCurrentRoundCount,this.currentCards,this.attemptsCount,this.successesCount,this.secondsLeft,this.playTime)
       localStorage.setItem("gameResult",JSON.stringify(game))
       this.router.navigate(['result'])
+      
+    }
+
+    playTimeInit(){
+      const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
+    
+      if(difficulty === 'easy'){
+      this.playTime = 120
+      }
+      else if(difficulty === 'medium'){
+        this.playTime = 90
+      }
+      else{
+        this.playTime = 60
+      }
     }
 
 
