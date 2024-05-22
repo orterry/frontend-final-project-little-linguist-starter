@@ -1,4 +1,5 @@
 <div class="main">
+    <app-timer (timerEvent)="onTimerEvent($event)"></app-timer>
     <h1 class="title">Mixed Letter - {{currentCategory.name}}</h1>
     <p class="minimize-margin"> {{target}} </p>
     <p>

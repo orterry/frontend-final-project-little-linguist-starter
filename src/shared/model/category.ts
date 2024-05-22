@@ -1,3 +1,4 @@
+import { GameDifficulty } from "./game-difficulty";
 import { Language } from "./language";
 import { TranslatedWord } from "./translated-word";
 

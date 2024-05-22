@@ -11,15 +11,16 @@ import { GamePoint } from '../../../shared/model/game-points';
 import {PointsService} from '../../../../src/app/services/points-service'
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { TimerComponent } from "../../Timer/Timer.component";
 
 
 
 @Component({
-  selector: 'app-matching-game',
-  standalone: true,
-  imports: [WordComponent,CommonModule,MatIconModule],
-  templateUrl: './matching-game.component.html',
-  styleUrl: './matching-game.component.css'
+    selector: 'app-matching-game',
+    standalone: true,
+    templateUrl: './matching-game.component.html',
+    styleUrl: './matching-game.component.css',
+    imports: [WordComponent, CommonModule, MatIconModule, TimerComponent]
 })
 export class MatchingGameComponent {
   
@@ -34,6 +35,10 @@ export class MatchingGameComponent {
   currentPointsCount=0
   pointsForCurrentRoundCount=0
   pointsService:PointsService = new PointsService()
+
+  onTimerEvent(timeLeft: number): void {
+    console.log(`Time left: ${timeLeft} seconds`);
+  }
   
 
   constructor(private dialogService : MatDialog,private router : Router){

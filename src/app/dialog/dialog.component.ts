@@ -56,6 +56,7 @@ export class DialogComponent {
 
   sendCategoryGame(){
     localStorage.setItem("currentCategory",JSON.stringify(this.currentcategory))
+    localStorage.setItem("difficulty",JSON.stringify(this.difficulty))
 
 
   }

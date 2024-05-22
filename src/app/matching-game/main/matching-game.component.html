@@ -1,6 +1,7 @@
 <div class="orderCards">
   <!-- Left column for currentCards -->
   <div class="flexDisplay">
+      <app-timer (timerEvent)="onTimerEvent($event)"></app-timer>
       <mat-icon class="rightside">monetization_on</mat-icon>
       <span class="rightside" [innerText]="pointsForCurrentRoundCount.toString()"></span>
   </div>

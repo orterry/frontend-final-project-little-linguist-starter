@@ -7,13 +7,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Router } from '@angular/router';
 import { GamePoint } from '../../shared/model/game-points';
+import { TimerComponent } from "../Timer/Timer.component";
 
 @Component({
-  selector: 'app-mixed-game',
-  standalone: true,
-  imports: [CommonModule,MatProgressBarModule],
-  templateUrl: './mixed-game.component.html',
-  styleUrl: './mixed-game.component.css'
+    selector: 'app-mixed-game',
+    standalone: true,
+    templateUrl: './mixed-game.component.html',
+    styleUrl: './mixed-game.component.css',
+    imports: [CommonModule, MatProgressBarModule, TimerComponent]
 })
 export class MixedGameComponent {
   
@@ -29,6 +30,10 @@ export class MixedGameComponent {
   currentPoint:number = 100
   attemptsCount:number=0
   successesCount:number=0
+
+  onTimerEvent(timeLeft: number): void {
+    console.log(`Time left: ${timeLeft} seconds`);
+  }
 
 
   ngOnInit(): void {
