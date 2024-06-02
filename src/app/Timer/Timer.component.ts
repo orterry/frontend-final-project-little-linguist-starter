@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { FirestoreService } from '../firestore.service';
 
 
 @Component({
@@ -17,14 +18,16 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   @Output() timerEvent = new EventEmitter<number>();
 
+  constructor(private firestoreService: FirestoreService){}
   private initialTime: number = 60; // Initial time set to 1 minute
   private currentTime: number = this.initialTime;
   private timerSubscription: Subscription | undefined;
   public formattedTime: string = '';
 
-  ngOnInit(): void {
-    const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
-    
+  async ngOnInit(): Promise<void> {
+    // const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
+    const difficulty = await this.firestoreService.getDifficulty() || ''
+
     if(difficulty === 'easy'){
       this.currentTime = 120
     }

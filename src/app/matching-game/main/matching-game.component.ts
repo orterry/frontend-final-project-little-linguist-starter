@@ -12,6 +12,7 @@ import {PointsService} from '../../../../src/app/services/points-service'
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { TimerComponent } from "../../Timer/Timer.component";
+import { FirestoreService } from '../../firestore.service';
 
 
 
@@ -47,7 +48,7 @@ export class MatchingGameComponent {
   }
   
 
-  constructor(private dialogService : MatDialog,private router : Router){
+  constructor(private firestoreService: FirestoreService,private dialogService : MatDialog,private router : Router){
     this.initGame()
   }
 
@@ -198,9 +199,9 @@ export class MatchingGameComponent {
       
     }
 
-    playTimeInit(){
-      const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
-    
+    async playTimeInit(){
+      // const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
+      const difficulty = await this.firestoreService.getDifficulty() || ''
       if(difficulty === 'easy'){
       this.playTime = 120
       }

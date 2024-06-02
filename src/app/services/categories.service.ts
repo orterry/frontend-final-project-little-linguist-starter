@@ -1,11 +1,15 @@
 import { categories } from './../../shared/data/categories';
 import { Injectable } from '@angular/core';
 import { Category } from '../../shared/model/category';
+import { FirestoreService } from '../firestore.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
+  constructor(private firestoreService: FirestoreService){}
+
+
   private readonly CATEGORIES_KEY = 'categories';
   private readonly NEXT_ID_KEY = 'nextId';
 
@@ -19,10 +23,10 @@ export class CategoriesService {
     }
   }
 
-  private getNextId() : number {
-    let nextIdString = localStorage.getItem(this.NEXT_ID_KEY); 
-
-    return nextIdString ? parseInt(nextIdString) : 0;
+  private async getNextId() : Promise<any> {
+    // let nextIdString = localStorage.getItem(this.NEXT_ID_KEY); 
+    let nextIdString = await this.firestoreService.getNextId()
+    return nextIdString ? nextIdString : 0;
   }
 
   private setCategories(list : Map<number, Category>) : void {
@@ -56,8 +60,8 @@ export class CategoriesService {
     this.setCategories(categoriesMap);
   }
 
-  add(category : Category) : void {
-    category.id = this.getNextId();
+  async add(category : Category) : Promise<void> {
+    category.id = await this.getNextId();
     category.lastUpdateDate = new Date();
 
     let categoriesMap = this.getCategories();

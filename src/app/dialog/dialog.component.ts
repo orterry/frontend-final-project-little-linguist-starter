@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { GameProfile } from '../../shared/model/game-profile';
 import { RouterModule } from '@angular/router';
 import { Category } from '../../shared/model/category';
+import { FirestoreService } from '../firestore.service';
 
 
 
@@ -26,7 +27,8 @@ import { Category } from '../../shared/model/category';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public currentcategory:Category) { }
+  
+  constructor(private firestoreService: FirestoreService,@Inject(MAT_DIALOG_DATA) public currentcategory:Category) { }
 
   public selectedValue : number = 2
   public selectedRoute : string = 'matching'
@@ -56,7 +58,8 @@ export class DialogComponent {
 
   sendCategoryGame(){
     localStorage.setItem("currentCategory",JSON.stringify(this.currentcategory))
-    localStorage.setItem("difficulty",JSON.stringify(this.difficulty))
+    // localStorage.setItem("difficulty",JSON.stringify(this.difficulty))
+    this.firestoreService.changeDifficulty(this.difficulty)
 
 
   }

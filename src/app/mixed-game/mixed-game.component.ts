@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Router } from '@angular/router';
 import { GamePoint } from '../../shared/model/game-points';
 import { TimerComponent } from "../Timer/Timer.component";
+import { FirestoreService } from '../firestore.service';
 
 @Component({
     selector: 'app-mixed-game',
@@ -18,7 +19,7 @@ import { TimerComponent } from "../Timer/Timer.component";
 })
 export class MixedGameComponent {
   
-  constructor(private dialogService : MatDialog,private router:Router){}
+  constructor(private firestoreService: FirestoreService,private dialogService : MatDialog,private router:Router){}
   
   currentCategory:Category=new Category(0,'',Language.English,Language.Hebrew);
   level:number = 0
@@ -126,9 +127,10 @@ export class MixedGameComponent {
     return progress;
   }
 
-  playTimeInit(){
-    const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
-  
+  async playTimeInit(){
+    // const difficulty = JSON.parse(localStorage.getItem("difficulty")||'')
+    const difficulty = await this.firestoreService.getDifficulty() || ''
+
     if(difficulty === 'easy'){
     this.playTime = 120
     }
